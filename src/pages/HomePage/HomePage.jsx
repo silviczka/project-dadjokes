@@ -1,10 +1,10 @@
 import './style.css';
-import { Joke } from '../../components/Joke/Joke';
+import { JokeList } from '../../components/JokeList/JokeList';
 
 export const HomePage = () => {
   return (
     <div className="container">
-      <Joke />
+      <JokeList />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import './joke.css';
 import { useState } from 'react';
 
-export const Joke = () => {
-  const [likeCount, setLikeCount] = useState(0);
-  const [dislikeCount, setDislikeCount] = useState(0);
+export const Joke = ({ userAvatar, userName, text, likes, dislikes }) => {
+  const [likeCount, setLikeCount] = useState(likes);
+  const [dislikeCount, setDislikeCount] = useState(dislikes);
   const handleClickLike = () => {
     setLikeCount((old) => {
       return old + 1;
@@ -18,18 +18,11 @@ export const Joke = () => {
     <div className="joke">
       <div className="joke__body">
         <div className="joke__user">
-          <img
-            className="user-avatar"
-            src="https://raw.githubusercontent.com/Czechitas-podklady-WEB/dadjokes/main/users/user01.png"
-          />
-          <p className="user-name">Neroxx</p>
+          <img className="user-avatar" src={userAvatar} />
+          <p className="user-name">{userName}</p>
         </div>
 
-        <p className="joke__text">
-          The secret service isn't allowed to yell "Get down!" anymore when the
-          president is about to be attacked. Now they have to yell "Donald,
-          duck!"
-        </p>
+        <p className="joke__text">{text}</p>
       </div>
       <div className="joke__likes">
         <button
